@@ -2,7 +2,6 @@ const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const cursorGlow = document.querySelector("[data-cursor-glow]");
-const parallaxItems = document.querySelectorAll("[data-parallax]");
 const projectsContainer = document.querySelector("[data-projects]");
 const projectToggle = document.querySelector("[data-project-toggle]");
 const filterButtons = document.querySelectorAll("[data-filter]");
@@ -332,13 +331,6 @@ if (window.matchMedia("(pointer: fine)").matches) {
     (event) => {
       cursorGlow.style.transform = `translate3d(${event.clientX - 170}px, ${event.clientY - 170}px, 0)`;
 
-      const x = (event.clientX / window.innerWidth - 0.5) * 2;
-      const y = (event.clientY / window.innerHeight - 0.5) * 2;
-
-      parallaxItems.forEach((item) => {
-        const depth = Number(item.dataset.parallax);
-        item.style.translate = `${x * depth * 100}px ${y * depth * 70}px`;
-      });
     },
     { passive: true }
   );
