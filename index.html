@@ -89,71 +89,93 @@
 
       <section class="intro section-band" id="about">
         <div class="section-inner">
-          <div class="section-heading">
-            <p class="section-kicker">Interactive About</p>
-            <h2>Choose your perspective.</h2>
-            <p class="section-copy">How do you want to know me?</p>
-          </div>
-          <div class="about-lab">
-            <div class="perspective-panel">
-              <div class="perspective-tabs" aria-label="Choose perspective">
-                <button class="perspective-tab is-active" type="button" data-perspective="data">Data Analyst</button>
-                <button class="perspective-tab" type="button" data-perspective="qa">QA Engineer</button>
-                <button class="perspective-tab" type="button" data-perspective="fullstack">Full Stack</button>
-                <button class="perspective-tab" type="button" data-perspective="solver">Problem Solver</button>
-              </div>
-              <article class="perspective-card" data-perspective-card></article>
+          <div class="about-console">
+            <div class="about-intro">
+              <p class="section-kicker">About Me</p>
+              <h2>I enjoy solving problems through data, code, and curiosity.</h2>
+              <p>
+                I believe data tells a story, and technology helps turn that story into impact. I build,
+                analyze, test, and improve systems that make work easier and decisions smarter.
+              </p>
+              <a class="about-link" href="#projects">Explore My Work</a>
             </div>
-            <div class="dashboard-card">
-              <p class="mini-kicker">Career Overview</p>
-              <div class="kpi-list">
-                <div class="kpi-row"><span>Experience</span><strong>4 domains</strong><i style="--value: 78%"></i></div>
-                <div class="kpi-row"><span>Projects</span><strong>10+</strong><i style="--value: 88%"></i></div>
-                <div class="kpi-row"><span>Certificates</span><strong>9+</strong><i style="--value: 72%"></i></div>
-                <div class="kpi-row"><span>Tech Stack</span><strong>15+</strong><i style="--value: 84%"></i></div>
+
+            <div class="journey-panel">
+              <p class="section-kicker">My Journey</p>
+              <div class="journey-track" aria-label="My journey">
+                <article>
+                  <span>2022</span>
+                  <strong>Information Systems</strong>
+                  <p>Started my journey in systems, data, and digital business.</p>
+                </article>
+                <article>
+                  <span>2023</span>
+                  <strong>Lab Assistant</strong>
+                  <p>Taught programming, logic, algorithms, and enterprise systems.</p>
+                </article>
+                <article>
+                  <span>2024</span>
+                  <strong>Data Analyst Intern</strong>
+                  <p>Built dashboards, explored data, and learned business analytics.</p>
+                </article>
+                <article>
+                  <span>2025</span>
+                  <strong>QA and Projects</strong>
+                  <p>Expanded into testing, UAT, web systems, and machine learning.</p>
+                </article>
+                <article>
+                  <span>Now</span>
+                  <strong>Building Impact</strong>
+                  <p>Continuously learning AI, quality engineering, and product thinking.</p>
+                </article>
               </div>
             </div>
           </div>
-          <div class="insight-grid">
-            <article class="insight-card">
-              <p class="mini-kicker">Personality Radar</p>
-              <div class="radar-list">
-                <div><span>Problem Solving</span><i style="--value: 94%"></i></div>
-                <div><span>Analytical Thinking</span><i style="--value: 92%"></i></div>
-                <div><span>Attention to Detail</span><i style="--value: 90%"></i></div>
-                <div><span>Communication</span><i style="--value: 82%"></i></div>
-                <div><span>Curiosity</span><i style="--value: 88%"></i></div>
-              </div>
+
+          <div class="domain-grid">
+            <article class="domain-card domain-data">
+              <span class="domain-icon">DA</span>
+              <h3>Data Analytics</h3>
+              <ul>
+                <li>Data Cleaning</li>
+                <li>Data Exploration</li>
+                <li>Dashboard & Reporting</li>
+                <li>Business Insights</li>
+              </ul>
+              <a href="#projects" data-domain-filter="data">View Projects</a>
             </article>
-            <article class="insight-card workflow-card">
-              <p class="mini-kicker">My Workflow</p>
-              <div class="workflow-steps" aria-label="Workflow">
-                <span>Problem</span>
-                <span>Analyze</span>
-                <span>Design</span>
-                <span>Build</span>
-                <span>Test</span>
-                <span>Improve</span>
-              </div>
+            <article class="domain-card domain-ai">
+              <span class="domain-icon">AI</span>
+              <h3>Machine Learning</h3>
+              <ul>
+                <li>Data Mining</li>
+                <li>Classification</li>
+                <li>Clustering</li>
+                <li>Prediction Modeling</li>
+              </ul>
+              <a href="#projects" data-domain-filter="ai">View Projects</a>
             </article>
-            <article class="insight-card learning-card">
-              <p class="mini-kicker">Currently Learning</p>
-              <div class="radar-list">
-                <div><span>Azure AI</span><i style="--value: 80%"></i></div>
-                <div><span>LLM Workflow</span><i style="--value: 65%"></i></div>
-                <div><span>Docker</span><i style="--value: 50%"></i></div>
-              </div>
+            <article class="domain-card domain-web">
+              <span class="domain-icon">FS</span>
+              <h3>Software Development</h3>
+              <ul>
+                <li>Full Stack Web</li>
+                <li>API Development</li>
+                <li>Database Design</li>
+                <li>UI/UX Implementation</li>
+              </ul>
+              <a href="#projects" data-domain-filter="web">View Projects</a>
             </article>
-            <article class="insight-card journey-card">
-              <p class="mini-kicker">My Journey</p>
-              <div class="journey-steps" aria-label="Journey">
-                <span>Lab Assistant</span>
-                <span>Data Analyst Intern</span>
-                <span>Business Analytics</span>
-                <span>Machine Learning</span>
-                <span>Software QA</span>
-                <span>Today</span>
-              </div>
+            <article class="domain-card domain-qa">
+              <span class="domain-icon">QA</span>
+              <h3>Quality Assurance</h3>
+              <ul>
+                <li>Test Case Design</li>
+                <li>Black Box Testing</li>
+                <li>UAT & Validation</li>
+                <li>Bug Reporting</li>
+              </ul>
+              <a href="#projects" data-domain-filter="qa">View Projects</a>
             </article>
           </div>
         </div>

@@ -6,33 +6,9 @@ const parallaxItems = document.querySelectorAll("[data-parallax]");
 const projectsContainer = document.querySelector("[data-projects]");
 const projectToggle = document.querySelector("[data-project-toggle]");
 const filterButtons = document.querySelectorAll("[data-filter]");
-const perspectiveTabs = document.querySelectorAll("[data-perspective]");
-const perspectiveCard = document.querySelector("[data-perspective-card]");
+const domainFilterLinks = document.querySelectorAll("[data-domain-filter]");
 const caseModal = document.querySelector("[data-case-modal]");
 const caseCloseButtons = document.querySelectorAll("[data-case-close]");
-
-const perspectives = {
-  data: {
-    title: "Data Analyst",
-    items: ["Python", "SQL", "Tableau", "Power BI", "Looker Studio"],
-    summary: "I transform raw data into business insights that help teams understand patterns, risks, and opportunities.",
-  },
-  qa: {
-    title: "QA Engineer",
-    items: ["Black Box Testing", "UAT", "API Testing", "Business Logic Testing", "Bug Reports"],
-    summary: "I make sure software works as expected before users rely on it.",
-  },
-  fullstack: {
-    title: "Full Stack Builder",
-    items: ["React", "TypeScript", "Node.js", "Express", "MySQL"],
-    summary: "I build web systems that connect clean interfaces, usable workflows, and reliable data structures.",
-  },
-  solver: {
-    title: "Problem Solver",
-    items: ["Clarify", "Analyze", "Design", "Build", "Test", "Improve"],
-    summary: "I break ambiguous problems into structured steps, then turn them into practical digital solutions.",
-  },
-};
 
 const projects = [
   {
@@ -194,21 +170,6 @@ let revealObserver;
 const getFilteredProjects = () =>
   activeFilter === "all" ? projects : projects.filter((project) => project.tags.includes(activeFilter));
 
-const renderPerspective = (key = "data") => {
-  if (!perspectiveCard) {
-    return;
-  }
-
-  const perspective = perspectives[key];
-  perspectiveCard.innerHTML = `
-    <h3>${perspective.title}</h3>
-    <ul>
-      ${perspective.items.map((item) => `<li>${item}</li>`).join("")}
-    </ul>
-    <p>${perspective.summary}</p>
-  `;
-};
-
 const openCaseStudy = (project) => {
   if (!caseModal) {
     return;
@@ -281,7 +242,7 @@ const renderProjects = () => {
 
 const refreshRevealTargets = () => {
   const revealTargets = document.querySelectorAll(
-    ".intro .section-heading, .about-lab, .insight-card, .section-heading, .project-card, .timeline-item, .skill-card, .split-grid > *, .cert-grid article, .footer-grid > *"
+    ".about-console, .domain-card, .section-heading, .project-card, .timeline-item, .skill-card, .split-grid > *, .cert-grid article, .footer-grid > *"
   );
 
   revealTargets.forEach((target, index) => {
@@ -293,22 +254,21 @@ const refreshRevealTargets = () => {
   });
 };
 
-renderPerspective();
-
-perspectiveTabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    perspectiveTabs.forEach((item) => item.classList.remove("is-active"));
-    tab.classList.add("is-active");
-    renderPerspective(tab.dataset.perspective);
-  });
-});
-
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     activeFilter = button.dataset.filter;
     projectsExpanded = false;
     filterButtons.forEach((item) => item.classList.remove("is-active"));
     button.classList.add("is-active");
+    renderProjects();
+  });
+});
+
+domainFilterLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    activeFilter = link.dataset.domainFilter;
+    projectsExpanded = false;
+    filterButtons.forEach((item) => item.classList.toggle("is-active", item.dataset.filter === activeFilter));
     renderProjects();
   });
 });
