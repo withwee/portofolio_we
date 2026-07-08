@@ -45,8 +45,9 @@ const projects = [
     caseStudy: {
       problem: "Manual operational tracking made it difficult to monitor stock movement, purchases, and reporting in one reliable place.",
       solution: "Designed a web-based system with dashboard analytics, recommendation logic, purchase order flow, and exportable reports.",
-      challenge: "Balancing multiple operational rules while keeping the workflow understandable for non-technical users.",
-      impact: "Created a clearer flow for monitoring, decision support, and report generation.",
+      process: "Mapped the operational flow, defined database entities, designed dashboard views, then tested core transactions and report exports.",
+      result: "Created a clearer flow for monitoring, decision support, and report generation.",
+      lessons: "Operational systems work best when rules, data structure, and user workflow are designed together.",
     },
   },
   {
@@ -59,8 +60,9 @@ const projects = [
     caseStudy: {
       problem: "Electoral data needed a structured way to identify competitive areas and priority regions.",
       solution: "Applied clustering, classification, dimensionality reduction, and Streamlit to make the analysis explorable.",
-      challenge: "Turning statistical output into insights that are understandable for planning decisions.",
-      impact: "Helped surface patterns and priority areas from complex electoral datasets.",
+      process: "Cleaned the dataset, explored features, applied clustering/classification, reduced dimensions, and wrapped the result in Streamlit.",
+      result: "Helped surface patterns and priority areas from complex electoral datasets.",
+      lessons: "A useful ML project is not only about model output, but also about explaining why the output matters.",
     },
   },
   {
@@ -73,8 +75,9 @@ const projects = [
     caseStudy: {
       problem: "Competitive positioning needed to be understood across pricing, package flexibility, and customer preference dimensions.",
       solution: "Compared market attributes, explored patterns with Python, and communicated findings through Tableau visuals.",
-      challenge: "Making qualitative market perception and quantitative package data comparable.",
-      impact: "Produced structured insight for understanding brand position and customer-facing opportunities.",
+      process: "Compared package attributes, pricing, flexibility, and perception signals, then translated findings into visual analytics.",
+      result: "Produced structured insight for understanding brand position and customer-facing opportunities.",
+      lessons: "Competitor analysis needs clear dimensions so subjective market signals can still support decisions.",
     },
   },
   {
@@ -87,8 +90,9 @@ const projects = [
     caseStudy: {
       problem: "Sales performance across locations needed clearer visibility to identify gaps and growth patterns.",
       solution: "Analyzed revenue trends, top cities, and outlet-level patterns using Python, Excel, and Tableau.",
-      challenge: "Cleaning and structuring performance data so comparisons stayed reliable.",
-      impact: "Supported better visibility into revenue patterns and business opportunities.",
+      process: "Cleaned performance data, grouped revenue by location and period, then visualized trends and gaps for review.",
+      result: "Supported better visibility into revenue patterns and business opportunities.",
+      lessons: "Before making recommendations, performance metrics need consistent definitions and comparable slices.",
     },
   },
   {
@@ -101,8 +105,9 @@ const projects = [
     caseStudy: {
       problem: "Community information and administration needed a more organized digital workflow.",
       solution: "Built an information system concept for managing citizen records, announcements, reports, and admin data.",
-      challenge: "Designing simple flows for different administrative needs without overcomplicating the system.",
-      impact: "Improved the structure of community data and information access.",
+      process: "Defined user needs, separated admin and information flows, then structured database-backed modules for community records.",
+      result: "Improved the structure of community data and information access.",
+      lessons: "Information systems should reduce administrative friction, not add new layers of complexity.",
     },
   },
   {
@@ -115,8 +120,9 @@ const projects = [
     caseStudy: {
       problem: "Rental transactions needed a web flow for catalog browsing, booking, and status tracking.",
       solution: "Created a CRUD-based rental website covering catalog, booking, rental status, and transaction data.",
-      challenge: "Keeping the transaction states consistent from booking to completion.",
-      impact: "Produced a clearer rental workflow and manageable transaction records.",
+      process: "Modeled catalog, booking, transaction, and rental status flows, then tested CRUD behavior across user actions.",
+      result: "Produced a clearer rental workflow and manageable transaction records.",
+      lessons: "State management is the core of rental systems because every transaction changes availability and responsibility.",
     },
   },
   {
@@ -129,8 +135,9 @@ const projects = [
     caseStudy: {
       problem: "Transaction data needed visual summaries for revenue, payment behavior, and performance trends.",
       solution: "Built dashboard views for revenue, payment methods, discount patterns, and transaction movement.",
-      challenge: "Choosing metrics that were clear enough for quick scanning and comparison.",
-      impact: "Made business performance easier to monitor through visual reporting.",
+      process: "Prepared transaction data, selected performance metrics, designed dashboard sections, and checked readability for quick scanning.",
+      result: "Made business performance easier to monitor through visual reporting.",
+      lessons: "A good dashboard prioritizes the few metrics that help people act faster.",
     },
   },
   {
@@ -143,8 +150,9 @@ const projects = [
     caseStudy: {
       problem: "Retention behavior after onboarding was difficult to interpret from raw customer activity.",
       solution: "Used cohort analysis to compare retention patterns across customer groups over time.",
-      challenge: "Structuring time-based activity into readable cohorts and churn signals.",
-      impact: "Helped identify retention patterns and possible churn risk points.",
+      process: "Grouped customers by cohort, calculated retention movement over time, and visualized drop-off patterns.",
+      result: "Helped identify retention patterns and possible churn risk points.",
+      lessons: "Retention analysis becomes useful when time windows and user behavior are framed clearly.",
     },
   },
   {
@@ -157,8 +165,9 @@ const projects = [
     caseStudy: {
       problem: "Software behavior needed validation against expected flows, edge cases, and user acceptance needs.",
       solution: "Created positive-negative test cases, validation checks, business logic tests, and UAT notes.",
-      challenge: "Finding defects that affect user trust before the system is relied on.",
-      impact: "Improved confidence in functional correctness and release readiness.",
+      process: "Translated requirements into test cases, executed positive/negative scenarios, logged findings, and validated fixes.",
+      result: "Improved confidence in functional correctness and release readiness.",
+      lessons: "QA is not only finding bugs; it is protecting the user from broken assumptions.",
     },
   },
   {
@@ -171,8 +180,9 @@ const projects = [
     caseStudy: {
       problem: "Cashier transactions needed a desktop app flow for login, product input, and revenue reporting.",
       solution: "Built a Java application with transaction processing and monthly revenue reporting.",
-      challenge: "Connecting input validation, transaction logic, and report output into one flow.",
-      impact: "Demonstrated core desktop application logic and database-backed transactions.",
+      process: "Built login, product input, transaction processing, and reporting flows, then checked data consistency with SQL.",
+      result: "Demonstrated core desktop application logic and database-backed transactions.",
+      lessons: "Even simple desktop apps need reliable validation, transaction flow, and reporting logic.",
     },
   },
 ];
@@ -209,8 +219,9 @@ const openCaseStudy = (project) => {
   caseModal.querySelector("[data-case-description]").textContent = project.description;
   caseModal.querySelector("[data-case-problem]").textContent = project.caseStudy.problem;
   caseModal.querySelector("[data-case-solution]").textContent = project.caseStudy.solution;
-  caseModal.querySelector("[data-case-challenge]").textContent = project.caseStudy.challenge;
-  caseModal.querySelector("[data-case-impact]").textContent = project.caseStudy.impact;
+  caseModal.querySelector("[data-case-process]").textContent = project.caseStudy.process;
+  caseModal.querySelector("[data-case-result]").textContent = project.caseStudy.result;
+  caseModal.querySelector("[data-case-lessons]").textContent = project.caseStudy.lessons;
   caseModal.querySelector("[data-case-tech]").innerHTML = project.tech.map((item) => `<span>${item}</span>`).join("");
   caseModal.hidden = false;
   document.body.classList.add("is-modal-open");

@@ -701,49 +701,46 @@ body.has-pointer .cursor-glow {
   background: rgba(34, 211, 238, 0.5);
 }
 
+.journey-card {
+  grid-column: 1 / -1;
+}
+
+.journey-steps {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.journey-steps span {
+  position: relative;
+  min-height: 78px;
+  display: grid;
+  align-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  color: rgba(255, 255, 255, 0.84);
+  background: rgba(255, 255, 255, 0.055);
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.journey-steps span::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  margin-bottom: 8px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.38);
+}
+
 .muted {
   position: relative;
   overflow: hidden;
   background:
     radial-gradient(circle at 80% 10%, rgba(139, 92, 246, 0.12), transparent 24rem),
     #101014;
-}
-
-.ticker {
-  overflow: hidden;
-  padding: 16px 0;
-  border-block: 1px solid rgba(22, 33, 43, 0.09);
-  background: #050816;
-  color: var(--white);
-}
-
-.ticker-track {
-  display: flex;
-  width: max-content;
-  gap: 34px;
-  animation: tickerMove 28s linear infinite;
-}
-
-.ticker-track span {
-  position: relative;
-  flex: 0 0 auto;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 0.84rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.ticker-track span::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: -20px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--purple);
-  transform: translateY(-50%);
 }
 
 .two-column,
@@ -1254,12 +1251,6 @@ h3 {
   }
 }
 
-@keyframes tickerMove {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 @keyframes projectIn {
   from {
     opacity: 0;
@@ -1338,6 +1329,10 @@ h3 {
   .case-grid {
     grid-template-columns: 1fr;
   }
+
+  .journey-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1383,6 +1378,10 @@ h3 {
 
   .workflow-steps {
     display: grid;
+  }
+
+  .journey-steps {
+    grid-template-columns: 1fr;
   }
 
   .workflow-steps span:not(:last-child)::after {
