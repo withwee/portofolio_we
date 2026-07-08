@@ -48,7 +48,7 @@
         </div>
         <div class="hero-content">
           <p class="hero-name">Wemona Devi</p>
-          <p class="role-badge">Data Analyst • QA Engineer • AI Enthusiast</p>
+          <p class="role-badge">Data Analyst - QA Engineer - AI Enthusiast</p>
           <h1>Turning Data Into Reliable Digital Solutions.</h1>
           <p class="hero-copy">
             Turning data, AI, and software testing into reliable digital solutions through analytics,
@@ -85,18 +85,64 @@
         </div>
       </section>
 
-      <section class="intro section-band">
-        <div class="section-inner two-column">
-          <div>
-            <p class="section-kicker">Profile</p>
-            <h2>Analytical, practical, and ready to turn business data into decisions.</h2>
+      <section class="intro section-band" id="about">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="section-kicker">Interactive About</p>
+            <h2>Choose your perspective.</h2>
+            <p class="section-copy">How do you want to know me?</p>
           </div>
-          <p>
-            As an analytics and information systems practitioner, Wemona works across data cleaning,
-            exploration, visualization, reporting, and basic machine learning. Her experience as a laboratory
-            assistant and digital marketer strengthens her technical communication, SQL/Python practice, and
-            understanding of business-facing analytics.
-          </p>
+          <div class="about-lab">
+            <div class="perspective-panel">
+              <div class="perspective-tabs" aria-label="Choose perspective">
+                <button class="perspective-tab is-active" type="button" data-perspective="data">Data Analyst</button>
+                <button class="perspective-tab" type="button" data-perspective="qa">QA Engineer</button>
+                <button class="perspective-tab" type="button" data-perspective="fullstack">Full Stack</button>
+                <button class="perspective-tab" type="button" data-perspective="solver">Problem Solver</button>
+              </div>
+              <article class="perspective-card" data-perspective-card></article>
+            </div>
+            <div class="dashboard-card">
+              <p class="mini-kicker">Career Overview</p>
+              <div class="kpi-list">
+                <div class="kpi-row"><span>Experience</span><strong>4 domains</strong><i style="--value: 78%"></i></div>
+                <div class="kpi-row"><span>Projects</span><strong>10+</strong><i style="--value: 88%"></i></div>
+                <div class="kpi-row"><span>Certificates</span><strong>9+</strong><i style="--value: 72%"></i></div>
+                <div class="kpi-row"><span>Tech Stack</span><strong>15+</strong><i style="--value: 84%"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="insight-grid">
+            <article class="insight-card">
+              <p class="mini-kicker">Personality Radar</p>
+              <div class="radar-list">
+                <div><span>Problem Solving</span><i style="--value: 94%"></i></div>
+                <div><span>Analytical Thinking</span><i style="--value: 92%"></i></div>
+                <div><span>Attention to Detail</span><i style="--value: 90%"></i></div>
+                <div><span>Communication</span><i style="--value: 82%"></i></div>
+                <div><span>Curiosity</span><i style="--value: 88%"></i></div>
+              </div>
+            </article>
+            <article class="insight-card workflow-card">
+              <p class="mini-kicker">My Workflow</p>
+              <div class="workflow-steps" aria-label="Workflow">
+                <span>Problem</span>
+                <span>Analyze</span>
+                <span>Design</span>
+                <span>Build</span>
+                <span>Test</span>
+                <span>Improve</span>
+              </div>
+            </article>
+            <article class="insight-card learning-card">
+              <p class="mini-kicker">Currently Learning</p>
+              <div class="radar-list">
+                <div><span>Azure AI</span><i style="--value: 80%"></i></div>
+                <div><span>LLM Workflow</span><i style="--value: 65%"></i></div>
+                <div><span>Docker</span><i style="--value: 50%"></i></div>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -124,12 +170,20 @@
       <section class="section projects-section" id="projects">
         <div class="section-inner">
           <div class="section-heading">
-            <p class="section-kicker">Featured Work</p>
-            <h2>Projects that combine data, AI, and software engineering.</h2>
+            <p class="section-kicker">Project Explorer</p>
+            <h2>Explore my work by domain.</h2>
             <p class="section-copy">
-              A selection of projects focused on solving real problems through full-stack development, analytics,
-              machine learning, and software quality assurance.
+              Filter projects by Data, AI, Web, QA, and Dashboard work. Open a case study to see the problem,
+              solution, tools, challenge, and impact behind each project.
             </p>
+          </div>
+          <div class="project-filters" aria-label="Project filters">
+            <button class="filter-button is-active" type="button" data-filter="all">All</button>
+            <button class="filter-button" type="button" data-filter="data">Data</button>
+            <button class="filter-button" type="button" data-filter="ai">AI</button>
+            <button class="filter-button" type="button" data-filter="web">Web</button>
+            <button class="filter-button" type="button" data-filter="qa">QA</button>
+            <button class="filter-button" type="button" data-filter="dashboard">Dashboard</button>
           </div>
           <div class="project-grid" data-projects></div>
           <div class="project-actions">
@@ -305,6 +359,23 @@
         </address>
       </div>
     </footer>
+
+    <div class="case-modal" role="dialog" aria-modal="true" aria-labelledby="case-title" hidden data-case-modal>
+      <div class="case-backdrop" data-case-close></div>
+      <article class="case-panel">
+        <button class="case-close" type="button" aria-label="Close case study" data-case-close>Close</button>
+        <p class="project-category" data-case-category></p>
+        <h2 id="case-title" data-case-heading></h2>
+        <p data-case-description></p>
+        <div class="case-grid">
+          <section><span>Problem</span><p data-case-problem></p></section>
+          <section><span>Solution</span><p data-case-solution></p></section>
+          <section><span>Challenge</span><p data-case-challenge></p></section>
+          <section><span>Impact</span><p data-case-impact></p></section>
+        </div>
+        <div class="project-tech" data-case-tech></div>
+      </article>
+    </div>
 
     <script src="script.js"></script>
   </body>

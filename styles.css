@@ -509,6 +509,198 @@ body.has-pointer .cursor-glow {
   opacity: 0.48;
 }
 
+.about-lab {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+  gap: 18px;
+}
+
+.perspective-panel,
+.dashboard-card,
+.insight-card,
+.case-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(18px);
+}
+
+.perspective-panel {
+  padding: 18px;
+}
+
+.perspective-tabs,
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.perspective-tab,
+.filter-button,
+.case-link,
+.case-close {
+  min-height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.07);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.perspective-tab:hover,
+.filter-button:hover,
+.case-link:hover,
+.case-close:hover,
+.perspective-tab.is-active,
+.filter-button.is-active {
+  border-color: rgba(34, 211, 238, 0.46);
+  color: var(--white);
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.16), rgba(139, 92, 246, 0.16));
+  transform: translateY(-2px);
+}
+
+.perspective-card {
+  min-height: 292px;
+  margin-top: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: clamp(22px, 4vw, 34px);
+  background:
+    radial-gradient(circle at 80% 10%, rgba(139, 92, 246, 0.16), transparent 18rem),
+    rgba(255, 255, 255, 0.045);
+}
+
+.perspective-card h3 {
+  color: var(--white);
+  font-size: clamp(1.8rem, 3.2vw, 3rem);
+}
+
+.perspective-card ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.perspective-card li {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 700;
+}
+
+.perspective-card p {
+  width: min(680px, 100%);
+  color: var(--muted-text);
+  font-size: 1.08rem;
+}
+
+.dashboard-card,
+.insight-card {
+  padding: 22px;
+}
+
+.mini-kicker {
+  margin: 0 0 18px;
+  color: var(--cyan);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.kpi-list,
+.radar-list {
+  display: grid;
+  gap: 16px;
+}
+
+.kpi-row,
+.radar-list div {
+  display: grid;
+  gap: 8px;
+}
+
+.kpi-row {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.kpi-row i,
+.radar-list i {
+  position: relative;
+  grid-column: 1 / -1;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.kpi-row i::before,
+.radar-list i::before {
+  content: "";
+  display: block;
+  width: var(--value);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--cyan), var(--blue), var(--purple));
+  animation: meterPulse 3s ease-in-out infinite;
+}
+
+.kpi-row span,
+.radar-list span {
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 700;
+}
+
+.kpi-row strong {
+  color: var(--white);
+}
+
+.insight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.workflow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.workflow-steps span {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 10px 14px;
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.07);
+  font-weight: 800;
+}
+
+.workflow-steps span:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -13px;
+  width: 13px;
+  height: 1px;
+  background: rgba(34, 211, 238, 0.5);
+}
+
 .muted {
   position: relative;
   overflow: hidden;
@@ -762,6 +954,10 @@ h3 {
   gap: 18px;
 }
 
+.project-filters {
+  margin: -18px 0 28px;
+}
+
 .project-actions {
   display: flex;
   justify-content: center;
@@ -841,6 +1037,92 @@ h3 {
   color: rgba(255, 255, 255, 0.78);
   background: rgba(255, 255, 255, 0.08);
   font-size: 0.86rem;
+}
+
+.case-link {
+  margin-top: 24px;
+  border-radius: 8px;
+}
+
+.is-modal-open {
+  overflow: hidden;
+}
+
+.case-modal[hidden] {
+  display: none;
+}
+
+.case-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.case-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.78);
+  backdrop-filter: blur(10px);
+}
+
+.case-panel {
+  position: relative;
+  z-index: 1;
+  width: min(920px, 100%);
+  max-height: min(760px, 88vh);
+  overflow: auto;
+  padding: clamp(24px, 4vw, 38px);
+  background:
+    radial-gradient(circle at 82% 0%, rgba(139, 92, 246, 0.16), transparent 22rem),
+    rgba(5, 8, 22, 0.94);
+}
+
+.case-close {
+  float: right;
+  border-radius: 8px;
+}
+
+.case-panel h2 {
+  clear: both;
+  margin-top: 12px;
+  color: var(--white);
+}
+
+.case-panel > p:not(.project-category) {
+  width: min(720px, 100%);
+  color: var(--muted-text);
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 28px 0;
+}
+
+.case-grid section {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.case-grid span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--cyan);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.case-grid p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
 }
 
 .cert-grid span {
@@ -1029,6 +1311,8 @@ h3 {
   }
 
   .hero-stats,
+  .about-lab,
+  .insight-grid,
   .two-column,
   .split-grid,
   .footer-grid,
@@ -1049,6 +1333,10 @@ h3 {
 
   .timeline-card::before {
     display: none;
+  }
+
+  .case-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1080,6 +1368,25 @@ h3 {
   .role-badge {
     border-radius: 8px;
     line-height: 1.45;
+  }
+
+  .perspective-tabs,
+  .project-filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .perspective-tab,
+  .filter-button {
+    border-radius: 8px;
+  }
+
+  .workflow-steps {
+    display: grid;
+  }
+
+  .workflow-steps span:not(:last-child)::after {
+    display: none;
   }
 
   .button {
