@@ -3,6 +3,61 @@ const nav = document.querySelector("[data-nav]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const cursorGlow = document.querySelector("[data-cursor-glow]");
 const parallaxItems = document.querySelectorAll("[data-parallax]");
+const projectsContainer = document.querySelector("[data-projects]");
+
+const projects = [
+  {
+    title: "Inventory Management System",
+    category: "Full Stack Development",
+    description:
+      "Web-based inventory system for real-time stock monitoring, Moving Average purchasing recommendation, FEFO, Purchase Order, and dashboard analytics.",
+    tech: ["React", "TypeScript", "Node.js", "Express", "MySQL"],
+  },
+  {
+    title: "Election Data Mining",
+    category: "Machine Learning",
+    description:
+      "Data mining project using K-Means, Random Forest, PCA, and Streamlit to analyze electoral competitiveness and predict priority areas.",
+    tech: ["Python", "Pandas", "Scikit-Learn", "Streamlit"],
+  },
+  {
+    title: "Retail Analytics Dashboard",
+    category: "Data Visualization",
+    description:
+      "Interactive dashboard for revenue, sell-through, stock aging, product performance, and store-level insights.",
+    tech: ["Tableau", "Excel", "Data Analytics"],
+  },
+  {
+    title: "QA Testing & UAT",
+    category: "Software Quality Assurance",
+    description:
+      "Black box testing, positive-negative test cases, validation testing, business logic testing, and user acceptance testing.",
+    tech: ["Test Case", "Bug Report", "UAT", "Black Box Testing"],
+  },
+];
+
+const renderProjects = () => {
+  if (!projectsContainer) {
+    return;
+  }
+
+  projectsContainer.innerHTML = projects
+    .map(
+      (project) => `
+        <article class="project-card">
+          <p class="project-category">${project.category}</p>
+          <h3>${project.title}</h3>
+          <p>${project.description}</p>
+          <div class="project-tech">
+            ${project.tech.map((item) => `<span>${item}</span>`).join("")}
+          </div>
+        </article>
+      `
+    )
+    .join("");
+};
+
+renderProjects();
 
 const syncHeader = () => {
   header.classList.toggle("is-scrolled", window.scrollY > 12);
@@ -26,7 +81,7 @@ window.addEventListener("scroll", syncHeader, { passive: true });
 syncHeader();
 
 const revealTargets = document.querySelectorAll(
-  ".intro .two-column > *, .section-heading, .timeline-item, .skill-card, .split-grid > *, .cert-grid article, .footer-grid > *"
+  ".intro .two-column > *, .section-heading, .project-card, .timeline-item, .skill-card, .split-grid > *, .cert-grid article, .footer-grid > *"
 );
 
 revealTargets.forEach((target, index) => {
