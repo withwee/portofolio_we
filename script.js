@@ -7,10 +7,10 @@ const projectsContainer = document.querySelector("[data-projects]");
 
 const projects = [
   {
-    title: "Inventory Management System",
+    title: "Operations Management System",
     category: "Full Stack Development",
     description:
-      "Web-based inventory system for real-time stock monitoring, Moving Average purchasing recommendation, FEFO, Purchase Order, and dashboard analytics.",
+      "Web-based management system for real-time operational monitoring, recommendation logic, workflow tracking, and dashboard analytics.",
     tech: ["React", "TypeScript", "Node.js", "Express", "MySQL"],
   },
   {
@@ -21,10 +21,10 @@ const projects = [
     tech: ["Python", "Pandas", "Scikit-Learn", "Streamlit"],
   },
   {
-    title: "Retail Analytics Dashboard",
+    title: "Business Analytics Dashboard",
     category: "Data Visualization",
     description:
-      "Interactive dashboard for revenue, sell-through, stock aging, product performance, and store-level insights.",
+      "Interactive dashboard for revenue, performance trends, operational metrics, and decision-ready business insights.",
     tech: ["Tableau", "Excel", "Data Analytics"],
   },
   {
