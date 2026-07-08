@@ -4,28 +4,64 @@ const navToggle = document.querySelector("[data-nav-toggle]");
 const cursorGlow = document.querySelector("[data-cursor-glow]");
 const parallaxItems = document.querySelectorAll("[data-parallax]");
 const projectsContainer = document.querySelector("[data-projects]");
+const projectToggle = document.querySelector("[data-project-toggle]");
 
 const projects = [
   {
-    title: "Operations Management System",
-    category: "Full Stack Development",
+    title: "Inventory Management System",
+    category: "Featured • Full Stack",
     description:
-      "Web-based management system for real-time operational monitoring, recommendation logic, workflow tracking, and dashboard analytics.",
+      "Real-time inventory system with Moving Average purchasing recommendation, FEFO, Purchase Order, stock opname, dashboard, and export reports.",
     tech: ["React", "TypeScript", "Node.js", "Express", "MySQL"],
   },
   {
     title: "Election Data Mining",
-    category: "Machine Learning",
+    category: "Featured • Machine Learning",
     description:
-      "Data mining project using K-Means, Random Forest, PCA, and Streamlit to analyze electoral competitiveness and predict priority areas.",
-    tech: ["Python", "Pandas", "Scikit-Learn", "Streamlit"],
+      "Data mining project using clustering and classification to analyze electoral competitiveness and predict priority areas.",
+    tech: ["Python", "K-Means", "Random Forest", "PCA", "Streamlit"],
   },
   {
-    title: "Business Analytics Dashboard",
+    title: "by.U Competitor Analysis",
+    category: "Internship • Data Analytics",
+    description:
+      "Competitor analysis comparing by.U with other telco providers based on pricing, package flexibility, network perception, and customer preferences.",
+    tech: ["Python", "Tableau"],
+  },
+  {
+    title: "Telkomsel Outlet Sales Performance",
+    category: "Internship • Business Analytics",
+    description:
+      "Sales performance analysis to identify revenue patterns, top cities, growth trends, and revenue gaps across outlets.",
+    tech: ["Python", "Excel", "Tableau"],
+  },
+  {
+    title: "Warganet Information System",
+    category: "Web Development",
+    description:
+      "Community information system for managing citizen data, announcements, reports, and administrative information.",
+    tech: ["Web App", "Database", "Information System"],
+  },
+  {
+    title: "Smartphone Rental Website",
+    category: "Web Development",
+    description:
+      "Web-based rental system for smartphone catalog, booking, rental status, and transaction management.",
+    tech: ["Web App", "Database", "CRUD"],
+  },
+  {
+    title: "Retail Dashboard",
     category: "Data Visualization",
     description:
-      "Interactive dashboard for revenue, performance trends, operational metrics, and decision-ready business insights.",
-    tech: ["Tableau", "Excel", "Data Analytics"],
+      "Interactive dashboard to monitor revenue, payment methods, product performance, discounts, and transaction trends.",
+    tech: ["Looker Studio", "Tableau", "Excel"],
+  },
+  {
+    title: "Customer Retention Cohort Analysis",
+    category: "Data Analytics",
+    description:
+      "Cohort analysis project to understand customer retention patterns and identify potential churn after onboarding.",
+    tech: ["Python", "Pandas", "Data Visualization"],
   },
   {
     title: "QA Testing & UAT",
@@ -33,6 +69,13 @@ const projects = [
     description:
       "Black box testing, positive-negative test cases, validation testing, business logic testing, and user acceptance testing.",
     tech: ["Test Case", "Bug Report", "UAT", "Black Box Testing"],
+  },
+  {
+    title: "Java Cashier System",
+    category: "Academic • Desktop App",
+    description:
+      "Java-based cashier application with login, product input, transaction processing, and monthly revenue report.",
+    tech: ["Java", "NetBeans", "SQL"],
   },
 ];
 
@@ -43,8 +86,8 @@ const renderProjects = () => {
 
   projectsContainer.innerHTML = projects
     .map(
-      (project) => `
-        <article class="project-card">
+      (project, index) => `
+        <article class="project-card${index >= 6 ? " is-extra-project" : ""}">
           <p class="project-category">${project.category}</p>
           <h3>${project.title}</h3>
           <p>${project.description}</p>
@@ -58,6 +101,18 @@ const renderProjects = () => {
 };
 
 renderProjects();
+
+projectToggle?.addEventListener("click", () => {
+  const isExpanded = projectToggle.getAttribute("aria-expanded") === "true";
+
+  document.querySelectorAll(".is-extra-project").forEach((project) => {
+    project.classList.toggle("is-visible-project", !isExpanded);
+    project.classList.toggle("is-visible", !isExpanded);
+  });
+
+  projectToggle.setAttribute("aria-expanded", String(!isExpanded));
+  projectToggle.textContent = isExpanded ? "View More Projects" : "Show Fewer Projects";
+});
 
 const syncHeader = () => {
   header.classList.toggle("is-scrolled", window.scrollY > 12);

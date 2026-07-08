@@ -709,6 +709,16 @@ h3 {
   gap: 18px;
 }
 
+.project-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+}
+
+.project-toggle {
+  cursor: pointer;
+}
+
 .project-card {
   position: relative;
   overflow: hidden;
@@ -716,6 +726,15 @@ h3 {
   padding: 28px;
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.project-card.is-extra-project {
+  display: none;
+}
+
+.project-card.is-extra-project.is-visible-project {
+  display: block;
+  animation: projectIn 420ms ease both;
 }
 
 .project-card::before {
@@ -912,6 +931,17 @@ h3 {
 @keyframes tickerMove {
   to {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes projectIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
